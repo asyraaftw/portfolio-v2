@@ -1,7 +1,8 @@
 "use client";
 
 import AppBar from "@/components/AppBar";
-import { Box, Grid, Tab, Tabs, Typography } from "@mui/material";
+import Cards from "@/components/Cards";
+import { Box, Card, Grid, Tab, Tabs, Typography } from "@mui/material";
 import { useState } from "react";
 
 export default function Home() {
@@ -27,7 +28,9 @@ export default function Home() {
       </Box>
 
       <Box sx={{ border: 1, borderRadius: 0, borderColor: "red" }}>
-        <Typography>Tech Stack</Typography>
+        <Typography variant="h5" fontWeight="bold">
+          Tech Stack
+        </Typography>
         <Tabs
           onChange={handleChangeTab}
           value={tabChange}
@@ -41,13 +44,13 @@ export default function Home() {
           <Tab value={3} label="Tools & Others" {...a11yProps(3)} />
         </Tabs>
         <CustomTabPanel value={tabChange} index={0}>
-          Item One
+          <Cards langType="frontend" />
         </CustomTabPanel>
         <CustomTabPanel value={tabChange} index={1}>
-          Item Two
+          <Cards langType="backend" />
         </CustomTabPanel>
         <CustomTabPanel value={tabChange} index={2}>
-          Item Three
+          <Cards langType="tools" />
         </CustomTabPanel>
         <CustomTabPanel value={tabChange} index={3}>
           Item 4
