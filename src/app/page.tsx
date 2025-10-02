@@ -2,9 +2,19 @@
 
 import AppBar from "@/components/AppBar";
 import Cards from "@/components/Cards";
-import { Box, Card, Grid, Tab, Tabs, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  Grid,
+  Stack,
+  Tab,
+  Tabs,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
-
+import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
+import { FaLinkedin, FaGithubSquare, FaLink, FaDev } from "react-icons/fa";
 export default function Home() {
   const [tabChange, setTabChange] = useState(0);
 
@@ -16,13 +26,89 @@ export default function Home() {
       <Box sx={{ border: 1, borderRadius: 0, borderColor: "red" }}>
         <Grid container>
           <Grid size={12}>
-            <Typography variant="h4">Hi, Im Amirul Asyraaf </Typography>
+            <Typography variant="h2" fontFamily="monospace" fontWeight="bold">
+              {"Hi, I'm Amirul Asyraaf"}
+            </Typography>
           </Grid>
-          <Grid size={6}>
-            <Typography variant="h4">Full Stack Developer</Typography>
+          <Grid size={9}>
+            {/* Main */}
+            <Typography variant="h5" fontFamily="monospace" fontWeight="bold">
+              A Full Stack Developer from Kuala Lumpur, Malaysia
+            </Typography>
+
+            {/* Desc */}
+            <Typography variant="caption" fontFamily="monospace">
+              I’m a Full Stack Developer and Software Engineer experienced in
+              building scalable applications with .NET, Node.js, React, and
+              PostgreSQL. I work across the stack to create clean, user-friendly
+              frontends, robust APIs, and well-structured databases, while also
+              handling DevOps and deployments on Azure. Passionate about
+              crafting maintainable, tested, and efficient software with tools
+              like Jest, Mocha, Prisma, and TypeORM, I enjoy exploring new
+              technologies and developing side projects that solve real-world
+              problems.
+            </Typography>
           </Grid>
-          <Grid size={6}>
-            <Typography variant="h4">Hi, Im Amirul Asyraaf </Typography>
+          <Grid size={1} />
+          <Grid size={2}>
+            <Stack direction={{ xs: "column", sm: "column" }} spacing={1}>
+              <Button
+                variant="contained"
+                size="small"
+                sx={{ borderRadius: 2 }}
+                startIcon={<FaGithubSquare />}
+              >
+                <Box
+                  display={{ xs: "none", sm: "inline" }}
+                  alignItems={{ xs: "center", sm: "center" }}
+                  justifyContent={{ xs: "center", sm: "center" }}
+                >
+                  Github
+                </Box>
+              </Button>
+              <Button
+                variant="contained"
+                size="small"
+                sx={{ borderRadius: 2 }}
+                startIcon={<FaLinkedin />}
+              >
+                <Box
+                  display={{ xs: "none", sm: "inline" }}
+                  alignItems={{ xs: "none", sm: "center" }}
+                  justifyContent={{ xs: "none", sm: "center" }}
+                >
+                  LinkedIn
+                </Box>
+              </Button>
+              <Button
+                variant="contained"
+                size="small"
+                sx={{ borderRadius: 2 }}
+                startIcon={<FaLink />}
+              >
+                <Box
+                  display={{ xs: "none", sm: "inline" }}
+                  alignItems={{ xs: "none", sm: "center" }}
+                  justifyContent={{ xs: "none", sm: "center" }}
+                >
+                  Resume
+                </Box>
+              </Button>
+              <Button
+                variant="contained"
+                size="small"
+                sx={{ borderRadius: 2 }}
+                startIcon={<FaDev />}
+              >
+                <Box
+                  display={{ xs: "none", sm: "inline" }}
+                  alignItems={{ xs: "none", sm: "center" }}
+                  justifyContent={{ xs: "none", sm: "center" }}
+                >
+                  Services
+                </Box>
+              </Button>
+            </Stack>
           </Grid>
         </Grid>
       </Box>
@@ -34,14 +120,37 @@ export default function Home() {
         <Tabs
           onChange={handleChangeTab}
           value={tabChange}
-          textColor="secondary"
+          textColor="inherit"
           indicatorColor="secondary"
-          aria-label="secondary tabs example"
         >
-          <Tab value={0} label="Frontend" {...a11yProps(0)} />
-          <Tab value={1} label="Backend" {...a11yProps(1)} />
-          <Tab value={2} label="Database" {...a11yProps(2)} />
-          <Tab value={3} label="Tools & Others" {...a11yProps(3)} />
+          <Tab
+            value={0}
+            label="Frontend"
+            icon={<GridViewRoundedIcon />}
+            iconPosition="start"
+            {...a11yProps(0)}
+          />
+          <Tab
+            value={1}
+            label="Backend"
+            icon={<GridViewRoundedIcon />}
+            iconPosition="start"
+            {...a11yProps(1)}
+          />
+          <Tab
+            value={2}
+            label="Database"
+            icon={<GridViewRoundedIcon />}
+            iconPosition="start"
+            {...a11yProps(2)}
+          />
+          <Tab
+            value={3}
+            label="Tools & Others"
+            icon={<GridViewRoundedIcon />}
+            iconPosition="start"
+            {...a11yProps(3)}
+          />
         </Tabs>
         <CustomTabPanel value={tabChange} index={0}>
           <Cards langType="frontend" />
