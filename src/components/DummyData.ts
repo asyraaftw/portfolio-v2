@@ -14,14 +14,14 @@ export const tools: Tool[] = [
     type: "frontend",
     language: "JavaScript/TypeScript",
   },
-  { id: 3, name: "Vue.js", type: "frontend", language: "JavaScript" },
+  { id: 3, name: "Laravel", type: "frontend", language: "PHP" },
   { id: 4, name: "Angular", type: "frontend", language: "TypeScript" },
 
   // Backend
   { id: 5, name: "Node.js", type: "backend", language: "JavaScript" },
   { id: 6, name: ".NET", type: "backend", language: "C#" },
-  { id: 7, name: "Spring Boot", type: "backend", language: "Java" },
-  { id: 8, name: "Express.js", type: "backend", language: "JavaScript" },
-  { id: 9, name: "Django", type: "backend", language: "Python" },
-  { id: 10, name: "Ruby on Rails", type: "backend", language: "Ruby" },
+  // { id: 7, name: "Spring Boot", type: "backend", language: "Java" },
+  // { id: 8, name: "Express.js", type: "backend", language: "JavaScript" },
+  // { id: 9, name: "Django", type: "backend", language: "Python" },
+  // { id: 10, name: "Ruby on Rails", type: "backend", language: "Ruby" },
 ];

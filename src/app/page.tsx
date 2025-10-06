@@ -5,123 +5,162 @@ import Cards from "@/components/Cards";
 import {
   Box,
   Button,
-  Card,
   Grid,
   Stack,
   Tab,
   Tabs,
   Typography,
+  Paper,
 } from "@mui/material";
 import { useState } from "react";
 import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
 import { FaLinkedin, FaGithubSquare, FaLink, FaDev } from "react-icons/fa";
+
 export default function Home() {
   const [tabChange, setTabChange] = useState(0);
 
-  const handleChangeTab = (event: React.SyntheticEvent, newVal: number) => {
+  const handleChangeTab = (_event: React.SyntheticEvent, newVal: number) => {
     setTabChange(newVal);
   };
+
   return (
     <AppBar>
-      <Box sx={{ border: 1, borderRadius: 0, borderColor: "red" }}>
-        <Grid container>
-          <Grid size={12}>
-            <Typography variant="h2" fontFamily="monospace" fontWeight="bold">
-              {"Hi, I'm Amirul Asyraaf"}
-            </Typography>
-          </Grid>
-          <Grid size={9}>
-            {/* Main */}
-            <Typography variant="h5" fontFamily="monospace" fontWeight="bold">
-              A Full Stack Developer from Kuala Lumpur, Malaysia
+      <Box
+        sx={{
+          py: 8,
+          px: { xs: 2, md: 6 },
+          display: "flex",
+          flexDirection: "column",
+          gap: 4,
+        }}
+      >
+        <Grid container spacing={4} alignItems="center">
+          <Grid size={{ xs: 12, md: 9 }}>
+            <Typography
+              variant="h3"
+              fontFamily="monospace"
+              fontWeight="bold"
+              gutterBottom
+            >
+              Hi, Im Amirul Asyraaf
             </Typography>
 
-            {/* Desc */}
-            <Typography variant="caption" fontFamily="monospace">
+            <Typography
+              variant="h6"
+              fontFamily="monospace"
+              fontWeight="bold"
+              color="text.secondary"
+              gutterBottom
+            >
+              Full Stack Developer @ Kuala Lumpur, Malaysia
+            </Typography>
+
+            <Typography
+              variant="body1"
+              fontFamily="monospace"
+              color="text.secondary"
+              sx={{ maxWidth: 800, lineHeight: 1.7 }}
+            >
               I’m a Full Stack Developer and Software Engineer experienced in
               building scalable applications with .NET, Node.js, React, and
-              PostgreSQL. I work across the stack to create clean, user-friendly
-              frontends, robust APIs, and well-structured databases, while also
-              handling DevOps and deployments on Azure. Passionate about
-              crafting maintainable, tested, and efficient software with tools
-              like Jest, Mocha, Prisma, and TypeORM, I enjoy exploring new
-              technologies and developing side projects that solve real-world
-              problems.
+              PostgreSQL. I create clean, user-friendly frontends, robust APIs,
+              and well-structured databases while managing deployments on Azure.
+              Passionate about maintainable, efficient software and exploring
+              new technologies through side projects.
             </Typography>
           </Grid>
-          <Grid size={1} />
-          <Grid size={2}>
-            <Stack direction={{ xs: "column", sm: "column" }} spacing={1}>
+
+          <Grid size={{ xs: 12, md: 3 }}>
+            <Stack direction="column" spacing={1}>
               <Button
                 variant="contained"
                 size="small"
-                sx={{ borderRadius: 2 }}
+                sx={{
+                  borderRadius: 2,
+                  fontFamily: "monospace",
+                  textTransform: "none",
+                }}
                 startIcon={<FaGithubSquare />}
+                component="a"
+                href="https://github.com/asyraaftw/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Box
-                  display={{ xs: "none", sm: "inline" }}
-                  alignItems={{ xs: "center", sm: "center" }}
-                  justifyContent={{ xs: "center", sm: "center" }}
-                >
-                  Github
-                </Box>
+                Github
               </Button>
               <Button
                 variant="contained"
                 size="small"
-                sx={{ borderRadius: 2 }}
+                sx={{
+                  borderRadius: 2,
+                  fontFamily: "monospace",
+                  textTransform: "none",
+                }}
                 startIcon={<FaLinkedin />}
+                component="a"
+                href="https://www.linkedin.com/in/asyraaftw/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Box
-                  display={{ xs: "none", sm: "inline" }}
-                  alignItems={{ xs: "none", sm: "center" }}
-                  justifyContent={{ xs: "none", sm: "center" }}
-                >
-                  LinkedIn
-                </Box>
+                LinkedIn
               </Button>
               <Button
                 variant="contained"
                 size="small"
-                sx={{ borderRadius: 2 }}
+                sx={{
+                  borderRadius: 2,
+                  fontFamily: "monospace",
+                  textTransform: "none",
+                }}
                 startIcon={<FaLink />}
+                onClick={() => alert("Show resume modal here")}
               >
-                <Box
-                  display={{ xs: "none", sm: "inline" }}
-                  alignItems={{ xs: "none", sm: "center" }}
-                  justifyContent={{ xs: "none", sm: "center" }}
-                >
-                  Resume
-                </Box>
+                Resume
               </Button>
               <Button
                 variant="contained"
                 size="small"
-                sx={{ borderRadius: 2 }}
+                sx={{
+                  borderRadius: 2,
+                  fontFamily: "monospace",
+                  textTransform: "none",
+                }}
                 startIcon={<FaDev />}
               >
-                <Box
-                  display={{ xs: "none", sm: "inline" }}
-                  alignItems={{ xs: "none", sm: "center" }}
-                  justifyContent={{ xs: "none", sm: "center" }}
-                >
-                  Services
-                </Box>
+                Services
               </Button>
             </Stack>
           </Grid>
         </Grid>
       </Box>
 
-      <Box sx={{ border: 1, borderRadius: 0, borderColor: "red" }}>
-        <Typography variant="h5" fontWeight="bold">
-          Tech Stack
+      <Paper
+        elevation={2}
+        sx={{
+          backgroundColor: "transparent",
+          borderRadius: 4,
+          mx: { xs: 2, md: 6 },
+          my: 6,
+          p: { xs: 2, md: 4 },
+        }}
+      >
+        <Typography
+          variant="h5"
+          fontWeight="bold"
+          fontFamily="monospace"
+          gutterBottom
+        >
+          🧠 Tech Stack
         </Typography>
+
         <Tabs
           onChange={handleChangeTab}
           value={tabChange}
           textColor="inherit"
           indicatorColor="secondary"
+          variant="scrollable"
+          scrollButtons="auto"
+          sx={{ fontFamily: "monospace", mb: 2 }}
         >
           <Tab
             value={0}
@@ -152,6 +191,7 @@ export default function Home() {
             {...a11yProps(3)}
           />
         </Tabs>
+
         <CustomTabPanel value={tabChange} index={0}>
           <Cards langType="frontend" />
         </CustomTabPanel>
@@ -159,12 +199,12 @@ export default function Home() {
           <Cards langType="backend" />
         </CustomTabPanel>
         <CustomTabPanel value={tabChange} index={2}>
-          <Cards langType="tools" />
+          <Cards langType="database" />
         </CustomTabPanel>
         <CustomTabPanel value={tabChange} index={3}>
-          Item 4
+          <Cards langType="tools" />
         </CustomTabPanel>
-      </Box>
+      </Paper>
     </AppBar>
   );
 }
@@ -175,19 +215,17 @@ interface TabPanelProps {
   value: number;
 }
 
-function CustomTabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
-
+function CustomTabPanel({ children, value, index }: TabPanelProps) {
   return (
-    <div
+    <Box
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
-      {...other}
+      sx={{ pt: 2 }}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
-    </div>
+      {value === index && <Box>{children}</Box>}
+    </Box>
   );
 }
 
